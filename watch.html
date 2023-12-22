@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Playback Page</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      #main-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /*Тоглуулагч болон жагтаалтын хоорондын зай*/
+        padding: 10px; /*Урдаас авах зай*/
+      }
+      #video-list {
+        width: 35%;
+      }
+      #video-player {
+        margin-left: 20px;
+        width: 60%;
+      }
+      #video-player iframe {
+        width: 100%;
+        height: 40%;
+      }
+      .video-item img {
+        margin: 0px;
+        width: 100%;            /* Жагсаалтын элементийн өргөнд хамааран өргөн */
+        height: auto;           /* Өндрийг автоматаар тохируулах */
+        border-radius: 0px;    /* Зургийн булангийн радиус */
+                                /* Та нэмж бусад стилийг энд оруулж болно */
+      }
+      .video-item iframe {
+        width: 500px;
+        height: 100%; /* Жижиг хэмжээ */
+      }
+      @media (max-width: 800px) {
+        #video-list,
+        #video-player {
+          width: 100%;
+        }
+      }
+    </style>
+    <script>
+      function playVideo(videoId, title, description) {
+        var videoUrl = "https://www.youtube.com/embed/" + videoId;
+        document.getElementById("main-video").src = videoUrl;
+        document.getElementById("video-title").innerText = title;
+        document.getElementById("video-description").innerText = description;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="main-content">
+      <div id="video-player">
+        <iframe
+          id="main-video"
+          src="https://www.youtube.com/embed/w-kktPjGOv4"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <h3 id="video-title">Main Video Title</h3>
+        <p id="video-description">Main Video Description</p>
+      </div>
+      <div id="video-list">
+        <div
+          class="video-item"
+          onclick="playVideo('w-kktPjGOv4', 'Сайн байцгаан уу энд хуран', 'Тайлбар хэсэг нь энд байрлах хэрэгтэй.')"
+        >
+          <img
+            src="https://img.youtube.com/vi/w-kktPjGOv4/0.jpg"
+            alt="Video 1 Thumbnail"
+          />
+          <h4>Сайн байна уу?</h4>
+          <p>
+            Энэ хэсэгт нь тайлбарыг нь бичих хэрэгтэй байхад бичих тайлбар
+            олдохгүй байна шүү дээ хха
+          </p>
+        </div>
+        <div
+          class="video-item"
+          onclick="playVideo('g76fnpvt4l4', 'Video 2 Title', 'Description for Video 2')"
+        >
+          <img
+            src="https://img.youtube.com/vi/g76fnpvt4l4/0.jpg"
+            alt="Video 2 Thumbnail"
+          />
+          <h4>Video 2 Title</h4>
+        </div>
+        <div
+          class="video-item"
+          onclick="playVideo('YmC53o2_gWk', 'Video 3 Title', 'Description for Video 3')"
+        >
+          <img
+            src="https://img.youtube.com/vi/YmC53o2_gWk/0.jpg"
+            alt="Video 3 Thumbnail"
+          />
+          <h4>Video 3 Title</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
