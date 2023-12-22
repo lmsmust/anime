@@ -1,2 +1,1 @@
-# anime
 My hero academia
